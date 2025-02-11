@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Profile</title>
+    <style>
+        body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #1a1a1a, #121212);
+    color: #fff;
+    scroll-behavior: smooth;
+}
+
+.profile-container {
+    text-align: center;
+    margin: 80px auto;
+    padding: 40px; /* Increased padding */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 20px rgba(255, 204, 0, 0.3); /* Subtle glow effect */
+    max-width: 600px; /* Set a maximum width for larger screens */
+}
+
+.profile-container img {
+    width: 200px; /* Increased image size */
+    height: 200px;
+    border-radius: 50%;
+    border: 5px solid #ffcc00; /* Add a gold border */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    object-fit: cover; /* Ensure image covers the circle */
+}
+
+.profile-container img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 204, 0, 0.5); /* Enhanced glow on hover */
+}
+
+.profile-container h1 {
+    font-size: 3em; /* Increased font size */
+    margin: 20px 0 10px; /* Adjusted margins */
+    color: #ffcc00; /* Gold color for the name */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add a text shadow */
+}
+
+.profile-container p {
+    font-size: 1.2em; /* Increased font size */
+    color: #eee; /* Slightly lighter text color */
+    margin-bottom: 30px; /* Increased margin at the bottom */
+    line-height: 1.6; /* Improved line height for readability */
+}
+
+header nav {
+    padding: 20px 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    display: flex; /* Enable flexbox for the nav */
+    justify-content: center; /* Center the navigation items */
+    width: 100%; 
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none; 
+    margin: 0 15px;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.2s ease;
+    white-space: nowrap; 
+}
+
+header nav a:hover {
+    color: #ffcc00;
+    transform: scale(1.1);
+}
+
+
+form {
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+form button {
+    background: #ff5722;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background: #e64a19;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+    background: #333;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.section {
+    padding: 50px 20px;
+    text-align: center;
+    background: #1f1f1f;
+    margin: 100px auto 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    width: 80%;
+}
+
+.section h2 {
+    font-size: 26px;
+    margin-bottom: 15px;
+    color: #ffcc00;
+    animation: bounceIn 1s ease;
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.section p,
+.section ul {
+    color: #ccc;
+    line-height: 1.8;
+}
+
+.projects {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.project-card {
+    background: #2b2b2b;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+}
+
+.project-card img {
+    transition: transform 0.3s ease;
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.project-card:hover img {
+    transform: scale(1.1);
+}
+
+.project-card h3 {
+    color: #ffcc00;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(to right, #333, #444);
+    color: #fff;
+    animation: footerGradient 5s linear infinite;
+}
+
+@keyframes footerGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.section#about {
+    text-align: left;
+    padding: 50px;
+}
+
+.section#about p {
+    color: #ccc;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.section#about ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.section#about li {
+    margin-bottom: 10px;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: none;
+}
+
+.header-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.header-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+header nav {
+    padding: 20px 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+header nav a {
+    color: #fff;
+}
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            background-image: url("132.jpg");
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+        .section {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+        }
+        .profile-container {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        footer {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        #contact-form {
+            max-width: 600px;
+            margin: 20px auto; 
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        #contact-form label {
+            color: #ffcc00;
+            margin-bottom: 5px;
+            text-align: left; 
+        }
+
+        #contact-form input,
+        #contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        #contact-form button {
+            background: #ff5722;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #contact-form button:hover {
+            background: #e64a19;
+        }
+
+        
+        
+    </style>
+</head>
+<body>
+    <div class="header-background">
+        <img src="132.jpg" alt="Header Background">
+    </div>
+    <header>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About Me</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="home" class="section">
+        <div class="profile-container">
+            <img src="rupesh.jpg" alt="Profile Picture">
+            <h1>Rupesh Honrao</h1>
+            <p>Student | Aspiring Developer</p>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <h2>About Me</h2>
+        <p>I am a Computer Science student passionate about coding, problem-solving, and building impactful projects. Currently honing my skills in web development and programming. I am eager to learn new technologies and contribute to innovative projects. I enjoy the challenge of turning ideas into functional and user-friendly applications. I am a quick learner and always looking for opportunities to expand my knowledge and skillset.</p>
+        <ul>
+            <li>Education: Army Public School, Nashik</li>
+            <li>Skills: C, C++, Web Development (HTML, CSS, JavaScript)</li>
+            <li>Currently Learning: React.js, Node.js</li>
+        </ul>
+    </section>
+
+    <section id="projects" class="section">
+        <h2>Projects</h2>
+        <div class="projects">
+            <div class="project-card">
+                <img src="placeholder.jpg" alt="Project 1">
+                <div class="project-card-content">
+                    <h3>Project 1: Portfolio Website</h3>
+                    <p>A responsive portfolio website built using HTML, CSS, and JavaScript to showcase my skills and projects. This project is designed to be clean, modern, and easy to navigate. It's the website you're currently viewing!</p>
+                    <a href="https://github.com/your-github-username/your-repo-name" target="_blank">GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="placeholder.jpg" alt="Project 2">
+                <div class="project-card-content">
+                    <h3>Project 2: PIG GAME</h3>
+                    <p>A fun and interactive game developed using HTML, CSS, and JavaScript. This project demonstrates my understanding of DOM manipulation, event handling, and basic game logic. Players roll a die and try to reach 100 points, but beware the 1!</p>
+                    <a href="https://rupesh5988.github.io/" target="_blank">GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="placeholder.jpg" alt="Project 3">
+                <div class="project-card-content">
+                    <h3>Project 3: Coming Soon</h3>
+                    <p>I'm currently working on some exciting new projects! A budget tracking application built with [JavaScript, HTML, CSS].  Users can add income and expenses, categorize transactions, and visualize spending to manage their finances.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Contact</h2>
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Rupesh Honrao. All rights reserved. | <a href="mailto:rupeshhonrao88@gmail.com">Email</a> | <a href="https://www.linkedin.com/in/your-linkedin-profile" target="_blank">LinkedIn</a> | <a href="https://github.com/your-github-profile" target="_blank">GitHub</a></p>
+    </footer>
+
+    <div id="back-to-top" onclick="scrollToTop()">Back to Top</div>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            alert('Form submitted successfully! (This is a demo. No actual email is sent.)');})
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Form submitted successfully! (This is a demo. No actual email is sent.)');
+        });
+
+        window.onscroll = function() {scrollFunction()};
+        </script>
+        </body>
+        </html>
